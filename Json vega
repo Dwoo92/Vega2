@@ -1,46 +1,27 @@
+
 {
   "width": 400,
   "height": 200,
   "padding": {"top": 10, "left": 80, "bottom": 30, "right": 10},
   "data":[
-    {
-      "name": "table",
-      "values": [
-        {"x": 1660,  "y": 50}, 
-        {"x": 1700,  "y": 200},
-        {"x": 1776,  "y": 1000}, 
-        {"x": 1790,  "y": 1300}, 
-        {"x": 1800,  "y": 2500}, 
-        {"x": 1820, "y": 2650}, 
-        {"x": 1830, "y": 4000},
-        {"x": 1840, "y": 15000}, 
-        {"x": 1850, "y": 50000},
-        {"x": 1860, "y": 125000},
-        {"x": 1880,  "y": 230000},
-        {"x": 1890,  "y": 400000},
-        {"x": 1900,  "y": 938000},
-        {"x": 1910,  "y": 1508000},
-        {"x": 1920, "y": 2044000},
-        {"x": 1930, "y": 3600000},
-        {"x": 1940, "y": 4400000},
-        {"x": 1950, "y": 4831000},
-        {"x": 1960, "y": 5531000},
-         {"x": 1970, "y": 6000000}
-      ]
-    }
+  {
+  "name": "table",
+  "url": "sarna.csv",
+  "format": {"type": "csv", "parse": {"year":"number", "estimate_low": "number"}}
+  }
   ],
   "scales": [
     {
       "name": "x",
       "type": "ordinal",
       "range": "width",
-      "domain": {"data": "table", "field": "data.x"}
+      "domain": {"data": "table", "field": "data.year"}
     },
     {
       "name": "y",
       "range": "height",
       "nice": true,
-      "domain": {"data": "table", "field": "data.y"}
+      "domain": {"data": "table", "field": "data.estimate_low"}
     }
   ],
   "axes": [
@@ -53,9 +34,9 @@
       "from": {"data": "table"},
       "properties": {
         "enter": {
-          "x": {"scale": "x", "field": "data.x"},
+          "x": {"scale": "x", "field": "data.year"},
           "width": {"scale": "x", "band": true, "offset": -1},
-          "y": {"scale": "y", "field": "data.y"},
+          "y": {"scale": "y", "field": "data.estimate_low"},
           "y2": {"scale": "y", "value": 0}
         },
         "update": {
@@ -68,3 +49,4 @@
     }
   ]
 }
+
