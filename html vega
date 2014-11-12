@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://trifacta.github.io/vega/vega.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Vega tutorial</title>
+</head>
+<body>
+  <h1 id="title">Let's Try Vega</h1>
+  <div id="viz"></div>
+  <div id="text"></div>
+<script type="text/javascript">
+	function parse(spec) {
+  		vg.parse.spec(spec, function(chart) { chart({el:"#viz", renderer: "svg"}).update(); });
+	}
+	parse("barchart.json");
+</script>
+</body>
+</html>
